@@ -15,8 +15,16 @@ namespace BooksCatalogue_API.Controllers
         {
             using (BooksCatalogueDB_Connection_String db = new BooksCatalogueDB_Connection_String())
             {
-
-                return db.Books.FirstOrDefault(s => s.Title == BookName);
+                Book API_Result = new Book();
+                API_Result =  db.Books.FirstOrDefault(s => s.Title == BookName);
+                if (API_Result != null)
+                {
+                    return API_Result;
+                }
+                else 
+                { 
+                    return null; 
+                }
             }
         }
     }
