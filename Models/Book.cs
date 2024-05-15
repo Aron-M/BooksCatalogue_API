@@ -21,5 +21,7 @@ namespace BooksCatalogue_API.Models
         public Nullable<int> PublicationYear { get; set; }
         public Nullable<decimal> Price { get; set; }
         public byte[] Image { get; set; }
+
+        public string ImageBase64 => Image != null ? Convert.ToBase64String(Image) : null;
     }
 }
